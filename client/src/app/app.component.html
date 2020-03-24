@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="messages-container">
+        <span class="d-block p-2">How are you ?</span>
+        <span class="d-block p-2">I hope you are well</span>
+        <span class="d-block p-2">As for me, I am fine too</span>
+        <span class="d-block p-2" *ngFor="let chat of chats">
+            {{chat.message}}
+        </span>
+    </div>
+    <div class="toolbar-container mt-5">
+        <div class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <input [(ngModel)]="textInput" type="text" class="form-control" id="message" placeholder="Enter text to send">
+            </div>
+            <button class="btn btn-primary mb-2" (click)="sendText()">Send Now</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+type Message {
+    from: String!
+    message: String!
+    sentAt: Float!
+}
+
+type Query {
+    getAllChats: [Message]
+}
+
+type Mutation {
+    createMessage(from: String!, message: String!): Message!
+}
+
+type Subscription {
+    newMessage: Message
+}
