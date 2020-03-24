@@ -10,7 +10,7 @@ interface IChat {
 }
 
 
-@Resolver('Chat')
+@Resolver()
 export class ChatResolver {
 
     private chats: IChat[];
@@ -19,6 +19,7 @@ export class ChatResolver {
     constructor() {
         this.pubSub = new PubSub();
         this.chats = [];
+        console.log('chat resolver init')
     }
 
     @Query()

@@ -15,7 +15,7 @@ export interface Message {
 export interface IMutation {
     createMessage(from: string, message: string): Message | Promise<Message>;
     createRoom(name: string): Room | Promise<Room>;
-    joinRoom(id: string, userId: string, name: string): Room | Promise<Room>;
+    joinRoom(id: string): Room | Promise<Room>;
 }
 
 export interface IQuery {
@@ -27,8 +27,7 @@ export interface IQuery {
 export interface Room {
     id: string;
     name: string;
-    joins: number;
-    users: User[];
+    users: number;
 }
 
 export interface ISubscription {
@@ -39,5 +38,5 @@ export interface ISubscription {
 export interface User {
     id: string;
     name: string;
-    roomJoin?: string;
+    roomJoin?: string
 }

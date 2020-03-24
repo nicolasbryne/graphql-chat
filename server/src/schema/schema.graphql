@@ -1,17 +1,35 @@
+type User {
+    id: String!
+    name: String!
+    roomJoin: String
+}
+
 type Message {
     from: String!
     message: String!
     sentAt: Float!
 }
 
+type Room {
+    id: String!
+    name: String!
+    joins: Float!
+    users: [User]!
+}
+
 type Query {
     getAllChats: [Message]
+    getRooms: [Room]!
+    getRoom(id: String!): Room
 }
 
 type Mutation {
     createMessage(from: String!, message: String!): Message!
+    createRoom(name: String!): Room!
+    joinRoom(id: String!, userId: String!, name: String!): Room!
 }
 
 type Subscription {
-    newMessage: Message
+    newMessage: Message!
+    joinRoom: User!
 }

@@ -22,6 +22,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    return;
     this.apollo.watchQuery<AllChatsQuery>({
       query : gql`
         query getAllChats {

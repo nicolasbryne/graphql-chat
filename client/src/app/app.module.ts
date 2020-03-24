@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
+import { RoomsComponent } from './pages/rooms/rooms.component';
+import { JoinComponent } from './pages/join/join.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RoomsComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,

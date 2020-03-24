@@ -6,6 +6,7 @@ import { ChatResolver } from './resolvers/chat/chat.resolver';
 import { AppService } from './app.service';
 import { join } from 'path';
 import { ChatService } from './services/chat/chat.service';
+import { RoomResolver } from './resolvers/room/room.resolver';
 
 @Module({
   imports: [
@@ -18,9 +19,14 @@ import { ChatService } from './services/chat/chat.service';
     })
   ],
   controllers: [AppController],
-  providers: [AppService, ChatResolver, {
-    provide : 'PUB_SUB',
-    useValue : new PubSub()
-  }],
+  providers: [
+    AppService, 
+    ChatResolver, 
+    RoomResolver,
+    {
+      provide : 'PUB_SUB',
+      useValue : new PubSub()
+    }
+  ],
 })
 export class AppModule {}
