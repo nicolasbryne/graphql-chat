@@ -3,6 +3,7 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 import gql from 'graphql-tag';
+import { uuid } from 'uuidv4'
 import { Chat, AllChatsQuery  } from './types/chat.type';
 
 @Component({
@@ -14,13 +15,14 @@ export class AppComponent {
   public title = 'client';
   public chats: Chat[] = [];
   public textInput: string;
+  private userId: string;
 
   constructor(private apollo: Apollo) {
 
   }
 
   ngOnInit() {
-    /* this.chats = this.apollo.watchQuery<AllChatsQuery>({
+    this.apollo.watchQuery<AllChatsQuery>({
       query : gql`
         query getAllChats {
           getAllChats {
@@ -33,22 +35,23 @@ export class AppComponent {
     }).valueChanges.pipe(
       tap(console.log),
       map(results => results.data.getAllChats)
-    );
- */
+    ).subscribe( results => results.map( result => this.chats.push(result)));
+ 
     this.subscribe();
   }
 
   sendText() {
+    if(!this.userId) this.userId = prompt('Enter your nickname');
     this.apollo.mutate({ 
       mutation : gql`
-        mutation createMessage($message: String!){
-          createMessage(from: "nicolas", message: $message) {
+        mutation createMessage($from: String!, $message: String!){
+          createMessage(from: $from, message: $message) {
             from
             message
             sentAt
           }
         }`,
-      variables : { message : this.textInput }
+      variables : { message : this.textInput, from : this.userId }
     }).subscribe(res => this.textInput = "");
   }
 

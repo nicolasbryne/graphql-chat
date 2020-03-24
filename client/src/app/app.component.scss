@@ -1,0 +1,13 @@
+.messages-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.msg-box {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 200px;
+    border-radius: 8px;
+    box-shadow: 2px 4px 6px rgba(133, 94, 94, 0.18);
+}
