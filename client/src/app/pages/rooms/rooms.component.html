@@ -11,7 +11,11 @@
         <div class="col-4">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h3 class="card-title text-primary">Medical Quiz</h3>
+                    <div class="d-flex align-items-center">
+                        <h3 class="card-title text-primary">Medical Quiz</h3>
+                        <a href="#" class="text-dark ml-auto"><i class="fas fa-edit"></i></a>
+                    </div>
+                    
                     <div class="card-text">
                         
                         <h1 class="mt-2 text-danger">ID : 615486</h1>
@@ -19,7 +23,7 @@
 
                     <div class="mt-3">
                         <span class="font-weight-bold">Users in room</span>
-                        <span class="font-weight-bold float-right text-success">5</span>
+                        <span class="float-right badge badge-warning">5</span>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">nicolasbryne</li>
@@ -34,7 +38,11 @@
         <div class="col-4" *ngFor="let room of rooms">
             <div class="card mt-5">
                 <div class="card-body">
-                    <h3 class="card-title text-primary">{{room.name}}</h3>
+                    <div class="d-flex align-items-center">
+                        <h3 class="card-title text-primary">{{room.name}}</h3>
+                        <a [routerLink]="[ '/rooms', room.id ]" class="text-dark ml-auto"><i class="fas fa-edit"></i></a>
+                    </div>
+                    
                     <div class="card-text">
                         
                         <h1 class="mt-2 text-danger">ID : {{room.id}}</h1>
@@ -42,7 +50,7 @@
 
                     <div class="mt-3">
                         <span class="font-weight-bold">Users in room</span>
-                        <span class="font-weight-bold float-right text-success">{{room.joins}}</span>
+                        <span class="float-right badge badge-warning">{{room.joins}}</span>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" *ngFor="let user of room.users">{{user.name}}</li>

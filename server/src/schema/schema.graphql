@@ -13,8 +13,37 @@ type Message {
 type Room {
     id: String!
     name: String!
+    questions: [Question]
     joins: Float!
     users: [User]!
+}
+
+type Question {
+    id: String!
+    answers: [Answer]
+}
+
+type Answer {
+    id: String!
+    answer: String!
+    correct: Boolean!
+}
+
+input AnswerInput {
+    id: String!
+    answer: String!
+    correct: Boolean!
+}
+
+input QuestionInput {
+    id: String!
+    answers: [AnswerInput]
+}
+
+
+input QuestionsInput {
+    roomId : String!
+    questions : [QuestionInput]
 }
 
 type Query {
@@ -27,6 +56,7 @@ type Mutation {
     createMessage(from: String!, message: String!): Message!
     createRoom(name: String!): Room!
     joinRoom(id: String!, userId: String!, name: String!): Room!
+    createQuestion(input: QuestionsInput): Boolean!
 }
 
 type Subscription {

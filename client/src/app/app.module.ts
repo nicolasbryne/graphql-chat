@@ -7,12 +7,14 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RoomsComponent } from './pages/rooms/rooms.component';
 import { JoinComponent } from './pages/join/join.component';
+import { RoomDetailComponent } from './pages/room-detail/room-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoomsComponent,
-    JoinComponent
+    JoinComponent,
+    RoomDetailComponent
   ],
   imports: [
     BrowserModule,

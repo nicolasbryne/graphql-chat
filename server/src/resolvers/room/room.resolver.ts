@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args, Subscription } from '@nestjs/graphql';
 import * as uid from 'crypto-random-string';
-import { Room } from '../../graphql';
+import { Room, QuestionsInput } from '../../graphql';
 import { PubSub } from 'graphql-subscriptions';
 
 @Resolver()
@@ -48,6 +48,13 @@ export class RoomResolver {
         console.log(room)
         this.pubSub.publish('joinRoom', { joinRoom : { id : userId, name, roomJoin : id }});
         return room;
+    }
+
+    @Mutation()
+    createQuestion(@Args('input') input: QuestionsInput ) {
+        const { roomId } = input;
+        this.rooms.filter(room => room.id === roomId).map( room => room.questions = input.questions);
+        return true;
     }
 
     @Subscription('joinRoom')

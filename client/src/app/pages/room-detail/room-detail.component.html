@@ -1,0 +1,65 @@
+<nav class="navbar bg-white navbar-white static-top navbar-shadow">
+    <div class="container">
+        <a class="navbar-brand">Quiz Myanmar</a>
+        <div class="d-flex align-items-center float-right">
+            <span class="font-weight-bold text-danger border border-danger rounded p-2">ID : 624581</span>
+            <button class="btn btn-success ml-2">Done</button>
+        </div>
+        
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <h5 class="mt-3 mb-4">Create Your Questions</h5>
+
+    <div class="row">
+        <div class="col-2 border-right">
+            <div class="text-center">
+                <div class="card mb-2 clickable" 
+                    *ngFor="let question of questions; let i = index" 
+                    (click)="selectQuestion(i)"
+                    [ngClass]="{'selected': i === selectedFormIndex}"
+                >
+                    <div class="card-header">
+                        <span class="small">Q1</span>
+                    </div>
+                    <div class="card-body">
+                        What is your name
+                    </div>
+                </div>
+                
+                <button class="btn btn-primary mt-4" (click)="addQuestion()">Add Question</button>
+            </div>
+            
+        </div>
+        <div class="col-10">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <textarea [(ngModel)]="questions[selectedFormIndex].title" class="form-control title-input" rows="1" placeholder="Type your question"></textarea>
+                    </div>
+                </div>
+            
+                <div class="row mt-5">
+                    <div class="col-6 mb-2">
+                        <input [(ngModel)]="questions[selectedFormIndex].answer_1" class="form-control" placeholder="Add answer 1" />
+                    </div>
+                    <div class="col-6 mb-2">
+                        <input [(ngModel)]="questions[selectedFormIndex].answer_2" class="form-control" placeholder="Add answer 2" />
+                    </div>
+                    <div class="col-6 mb-2">
+                        <input [(ngModel)]="questions[selectedFormIndex].answer_3" class="form-control" placeholder="Add answer 3 (Optional)" />
+                    </div>
+                    <div class="col-6 mb-2">
+                        <input [(ngModel)]="questions[selectedFormIndex].answer_4" class="form-control" placeholder="Add answer 4 (Optional)" />
+                    </div>
+                </div>
+            
+                <div class="mt-5 d-flex">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
