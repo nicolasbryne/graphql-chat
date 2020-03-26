@@ -20,6 +20,7 @@ type Room {
 
 type Question {
     id: String!
+    title: String!
     answers: [Answer]
 }
 
@@ -37,6 +38,7 @@ input AnswerInput {
 
 input QuestionInput {
     id: String!
+    title: String!
     answers: [AnswerInput]
 }
 

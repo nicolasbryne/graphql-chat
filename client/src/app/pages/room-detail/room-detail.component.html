@@ -2,8 +2,8 @@
     <div class="container">
         <a class="navbar-brand">Quiz Myanmar</a>
         <div class="d-flex align-items-center float-right">
-            <span class="font-weight-bold text-danger border border-danger rounded p-2">ID : 624581</span>
-            <button class="btn btn-success ml-2">Done</button>
+            <span class="font-weight-bold text-danger border border-danger rounded p-2">ID : {{roomId}}</span>
+            <button class="btn btn-success ml-2" (click)="submitQuestions()">Done</button>
         </div>
         
     </div>
@@ -24,7 +24,7 @@
                         <span class="small">Q1</span>
                     </div>
                     <div class="card-body">
-                        What is your name
+                        {{question.title}}
                     </div>
                 </div>
                 

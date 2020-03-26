@@ -14,6 +14,7 @@ export interface AnswerInput {
 
 export interface QuestionInput {
     id: string;
+    title: string;
     answers?: AnswerInput[];
 }
 
@@ -49,6 +50,7 @@ export interface IQuery {
 
 export interface Question {
     id: string;
+    title: string;
     answers?: Answer[];
 }
 

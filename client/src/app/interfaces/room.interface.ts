@@ -1,3 +1,5 @@
+import { IQuestion } from './question.interface';
+
 export interface User {
     id: string;
     name: string;
@@ -8,6 +10,7 @@ export interface Room {
     id: string;
     name: string;
     joins: number;
+    questions : IQuestion[]
     users: User[]
 }
 
@@ -17,6 +20,10 @@ export interface CreateRoomMutation {
 
 export interface GetRooms {
     getRooms: Room[];
+}
+
+export interface GetRoom {
+    getRoom: Room
 }
 
 export interface JoinRoomMutation {

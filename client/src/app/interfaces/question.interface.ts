@@ -4,7 +4,7 @@ export interface IQuestion {
 }
 
 export interface IAnswer {
-    id: number
+    id: string
     answer : string
 }
 
@@ -14,4 +14,27 @@ export interface IQuestionForm {
     answer_2: string;
     answer_3?: string;
     answer_4? : string;
+}
+
+export interface AnswerInput {
+    id: string;
+    answer: string;
+    correct: boolean;
+}
+
+export interface QuestionInput {
+    id: string;
+    title: string;
+    answers?: AnswerInput[];
+}
+
+export interface QuestionsInput {
+    roomId: string;
+    questions?: QuestionInput[];
+}
+
+export interface Answer {
+    id: string;
+    answer: string;
+    correct: boolean;
 }
