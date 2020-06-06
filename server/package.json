@@ -26,7 +26,7 @@
     "@nestjs/graphql": "^7.0.14",
     "@nestjs/platform-express": "^7.0.0",
     "apollo-link-ws": "^1.0.19",
-    "apollo-server-express": "^2.11.0",
+    "apollo-server-express": "^2.14.2",
     "crypto-random-string": "^3.2.0",
     "graphql": "^14.6.0",
     "graphql-subscriptions": "^1.1.0",
